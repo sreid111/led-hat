@@ -14,9 +14,23 @@ function rainbow () {
         basic.pause(100)
     }
 }
+input.onButtonPressed(Button.AB, function () {
+	
+})
 input.onButtonPressed(Button.B, function () {
     flag = 0
 })
+function red () {
+    strip.setBrightness(255)
+    strip.showColor(neopixel.colors(NeoPixelColors.Red))
+    strip.show()
+    basic.pause(500)
+    strip.clear()
+    strip.setBrightness(10)
+    strip.showColor(neopixel.colors(NeoPixelColors.Red))
+    strip.show()
+    basic.pause(500)
+}
 function police () {
     strip.showColor(neopixel.colors(NeoPixelColors.Red))
     strip.show()
@@ -46,7 +60,10 @@ basic.forever(function () {
     if (flag == 2) {
         police()
     }
-    if (flag > 2) {
+    if (flag == 3) {
+        red()
+    }
+    if (flag > 3) {
         flag = 0
     }
 })
