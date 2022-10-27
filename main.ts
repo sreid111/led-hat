@@ -8,7 +8,7 @@ input.onButtonPressed(Button.A, function () {
 function rainbow () {
     strip.showRainbow(1, 360)
     strip.show()
-    for (let index = 0; index <= 13; index++) {
+    for (let index = 0; index <= 12; index++) {
         strip.rotate(1)
         strip.show()
         basic.pause(100)
@@ -29,6 +29,13 @@ let flag = 0
 let strip: neopixel.Strip = null
 strip = neopixel.create(DigitalPin.P0, 13, NeoPixelMode.RGB)
 flag = 0
+basic.showLeds(`
+    . # . # .
+    . . . . .
+    # # # # #
+    # . . . #
+    . # # # .
+    `)
 basic.forever(function () {
     if (flag == 0) {
         purple()
@@ -39,7 +46,7 @@ basic.forever(function () {
     if (flag == 2) {
         police()
     }
-    if (flag > 3) {
+    if (flag > 2) {
         flag = 0
     }
 })
